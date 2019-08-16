@@ -21,11 +21,11 @@ spec:
         - containerPort: {{ .Values.service.targetPort }} 
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /login
+              port: 8085 
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /login
+              port: 8085
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
