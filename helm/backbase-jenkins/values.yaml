@@ -1,0 +1,21 @@
+app:
+  name: jenkins 
+  replicas: 1
+
+image:
+  repository: eu.gcr.io/backbase-jenkins/backbase-jenkins 
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 8085
+  targetPort: 8085
+
+resources: 
+  limits:
+    cpu: 512m
+    memory: 1024Mi
+  requests:
+    cpu: 512m
+    memory: 1024Mi
