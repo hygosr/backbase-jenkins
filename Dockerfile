@@ -1,4 +1,4 @@
-# docker image pushed to https://hub.docker.com/r/hygosr/backbase-jenkins using this Dockerfile
+# docker image backbase-jenkins pushed to https://hub.docker.com/r/hygosr/backbase-jenkins using this Dockerfile
 FROM jenkins/jenkins:latest
 
 # skip initial setup
