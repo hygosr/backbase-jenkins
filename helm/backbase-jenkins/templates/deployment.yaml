@@ -19,13 +19,20 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: {{ .Values.service.targetPort }} 
-          livenessProbe:
-            httpGet:
-              path: /login
-              port: 8085 
-          readinessProbe:
-            httpGet:
-              path: /login
-              port: 8085
+#          livenessProbe:
+#            httpGet:
+#              path: /login
+#              port: 8080
+#          readinessProbe:
+#            httpGet:
+#              path: /login
+#              port: 8080
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+      volumes:
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
